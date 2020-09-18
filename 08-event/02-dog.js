@@ -1,15 +1,13 @@
-#!/usr/bin/node
-
 const EventEmitter = require('events').EventEmitter;
 
 function Dog(name, energy) {
-  var _name   = name,
+  let _name   = name,
       _energy = energy,
       that    = this;
 
   EventEmitter.call(this);
 
-  var timer = setInterval(() => {
+  let timer = setInterval(() => {
     if(energy > 0) {
       that.emit('bark');
       _energy--;
@@ -20,7 +18,7 @@ function Dog(name, energy) {
     }
   }, 1000);
 
-  this.name = () => _name;
+  this.name   = () => _name;
   this.energy = () => _energy;
 }
 
